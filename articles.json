@@ -1,0 +1,85 @@
+
+{
+  "last_updated": "2024-09-18T16:00:00.000Z",
+  "total_articles": 25,
+  "articles": [
+    {
+      "id": "a1b2c3d4e5f6",
+      "title": "Toronto International Film Festival Wraps Up with Record Attendance",
+      "description": "TIFF 2024 has concluded, marking one of its most successful years with a significant increase in both filmmaker participation and audience numbers. The People's Choice Award went to an indie Canadian film.",
+      "url": "https://example.com/tiff-2024-wrap",
+      "source": "CBC News",
+      "image": "https://picsum.photos/seed/tiff2024/800/600",
+      "published": "2024-09-18T12:30:00Z",
+      "location": "Toronto",
+      "category": "entertainment",
+      "author": "Jane Doe",
+      "fetched_at": "2024-09-18T16:00:00Z"
+    },
+    {
+      "id": "b2c3d4e5f6a1",
+      "title": "Vancouver Housing Market Shows Signs of Cooling in September",
+      "description": "Real estate experts report a slight downturn in Vancouver's housing prices, offering a glimmer of hope for potential homebuyers. Sales volumes have decreased by 5% compared to the previous month.",
+      "url": "https://example.com/vancouver-housing-sept",
+      "source": "Vancouver Sun",
+      "image": "https://picsum.photos/seed/vanhousing/800/600",
+      "published": "2024-09-18T11:00:00Z",
+      "location": "Vancouver",
+      "category": "business",
+      "author": "John Smith",
+      "fetched_at": "2024-09-18T16:00:00Z"
+    },
+    {
+      "id": "c3d4e5f6a1b2",
+      "title": "Federal Government Announces New Funding for Indigenous-Led Conservation Projects",
+      "description": "A new $100 million fund has been established to support Indigenous communities in protecting their lands and waters, focusing on biodiversity and sustainable practices.",
+      "url": "https://example.com/indigenous-conservation-fund",
+      "source": "APTN News",
+      "image": "https://picsum.photos/seed/indigenous/800/600",
+      "published": "2024-09-18T14:00:00Z",
+      "location": "Canada",
+      "category": "indigenous",
+      "author": "MyCityNews Staff",
+      "fetched_at": "2024-09-18T16:00:00Z"
+    },
+    {
+      "id": "d4e5f6a1b2c3",
+      "title": "Canadiens Prepare for Pre-Season Opener in Montreal",
+      "description": "The Montreal Canadiens are hitting the ice this week for their first pre-season game, giving fans a first look at the new lineup for the upcoming NHL season.",
+      "url": "https://example.com/canadiens-preseason",
+      "source": "TSN",
+      "image": "https://picsum.photos/seed/habs2024/800/600",
+      "published": "2024-09-17T20:15:00Z",
+      "location": "Montreal",
+      "category": "sports",
+      "author": "Sports Desk",
+      "fetched_at": "2024-09-18T16:00:00Z"
+    },
+    {
+      "id": "e5f6a1b2c3d4",
+      "title": "Canadian Tech Sector Booms with AI Innovation",
+      "description": "A new report from BetaKit highlights the rapid growth of Canada's artificial intelligence sector, with major investments pouring into startups in Toronto, Montreal, and Vancouver.",
+      "url": "https://example.com/cdn-ai-boom",
+      "source": "BetaKit",
+      "image": "https://picsum.photos/seed/betakitai/800/600",
+      "published": "2024-09-18T09:00:00Z",
+      "location": "Canada",
+      "category": "technology",
+      "author": "Alex Chen",
+      "fetched_at": "2024-09-18T16:00:00Z"
+    },
+    {
+        "id": "f6a1b2c3d4e5",
+        "title": "Calgary Stampede Organizers Announce 2025 Theme",
+        "description": "Organizers for the Calgary Stampede have revealed the theme for next year's event, 'Heritage and Horizons', promising a blend of traditional rodeo action and futuristic exhibits.",
+        "url": "https://example.com/calgary-stampede-2025",
+        "source": "Calgary Sun",
+        "image": "https://picsum.photos/seed/stampede2025/800/600",
+        "published": "2024-09-17T15:00:00Z",
+        "location": "Calgary",
+        "category": "local",
+        "author": "MyCityNews Staff",
+        "fetched_at": "2024-09-18T16:00:00Z"
+    }
+  ]
+}
