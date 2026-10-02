@@ -1,0 +1,4 @@
+project_id = "mycitynews"
+
+[functions.ingest-news]
+verify_jwt = false
