@@ -1,0 +1,25 @@
+name: Ingest news
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Supabase news ingestion
+        env:
+          SUPABASE_FUNCTION_URL: ${{ secrets.SUPABASE_FUNCTION_URL }}
+          INGEST_CRON_SECRET: ${{ secrets.INGEST_CRON_SECRET }}
+        run: |
+          test -n "$SUPABASE_FUNCTION_URL" || (echo "Missing SUPABASE_FUNCTION_URL secret" && exit 1)
+          test -n "$INGEST_CRON_SECRET" || (echo "Missing INGEST_CRON_SECRET secret" && exit 1)
+
+          curl --fail --show-error --silent \
+            --request POST \
+            --header "Authorization: Bearer $INGEST_CRON_SECRET" \
+            --header "Content-Type: application/json" \
+            --data '{"trigger":"github-actions"}' \
+            "$SUPABASE_FUNCTION_URL"
