@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface LocationModalProps {
     isOpen: boolean;
@@ -8,7 +7,12 @@ interface LocationModalProps {
     onLocationChange: (newLocation: string) => void;
 }
 
-export const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose, currentLocation, onLocationChange }) => {
+export const LocationModal: React.FC<LocationModalProps> = ({
+    isOpen,
+    onClose,
+    currentLocation,
+    onLocationChange,
+}) => {
     const [newLocation, setNewLocation] = useState(currentLocation);
 
     useEffect(() => {
@@ -17,73 +21,66 @@ export const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose, c
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.key === 'Escape') {
-                onClose();
-            }
+            if (event.key === 'Escape') onClose();
         };
 
-        if (isOpen) {
-            window.addEventListener('keydown', handleKeyDown);
-        }
-
-        return () => {
-            window.removeEventListener('keydown', handleKeyDown);
-        };
+        if (isOpen) window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
     }, [isOpen, onClose]);
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (newLocation.trim()) {
-            onLocationChange(newLocation.trim());
-            onClose();
-        }
+    const handleSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
+        if (!newLocation.trim()) return;
+
+        onLocationChange(newLocation.trim());
+        onClose();
     };
-    
-    if (!isOpen) {
-        return null;
-    }
+
+    if (!isOpen) return null;
 
     return (
-        <div 
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
             aria-labelledby="location-modal-title"
             role="dialog"
             aria-modal="true"
         >
-            <div 
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-md m-4"
-                role="document"
-            >
-                <h2 id="location-modal-title" className="text-2xl font-bold font-serif mb-4">Change Location</h2>
+            <div className="m-4 w-full max-w-md rounded-lg bg-white p-6 shadow-xl dark:bg-gray-800" role="document">
+                <h2 id="location-modal-title" className="mb-4 font-serif text-2xl font-bold">
+                    Change location
+                </h2>
+
                 <form onSubmit={handleSubmit}>
                     <p className="mb-4 text-gray-600 dark:text-gray-400">
-                        Enter a city name to see local news and weather from that area.
+                        Enter a city, province, Canada, or World to personalize the news feed.
                     </p>
-                    <div>
-                        <label htmlFor="location-input" className="sr-only">City Name</label>
-                        <input
-                            id="location-input"
-                            type="text"
-                            value={newLocation}
-                            onChange={(e) => setNewLocation(e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-brand-blue"
-                            placeholder="e.g., Vancouver"
-                            autoFocus
-                        />
-                    </div>
-                    <div className="mt-6 flex justify-end space-x-3">
+
+                    <label htmlFor="location-input" className="sr-only">
+                        Location
+                    </label>
+                    <input
+                        id="location-input"
+                        type="text"
+                        value={newLocation}
+                        onChange={(event) => setNewLocation(event.target.value)}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-blue dark:border-gray-600 dark:bg-gray-700"
+                        placeholder="e.g., Toronto"
+                        autoFocus
+                    />
+
+                    <div className="mt-6 flex justify-end gap-3">
                         <button
                             type="button"
                             onClick={onClose}
-                            className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 transition-colors"
+                            className="rounded-md bg-gray-200 px-4 py-2 text-gray-800 hover:bg-gray-300 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500"
                         >
                             Cancel
                         </button>
                         <button
                             type="submit"
-                            className="px-4 py-2 bg-brand-blue text-white font-bold rounded-md hover:bg-blue-700 transition-colors"
+                            className="rounded-md bg-brand-blue px-4 py-2 font-bold text-white hover:bg-blue-700"
                         >
-                            Update Location
+                            Update location
                         </button>
                     </div>
                 </form>
